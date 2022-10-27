@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en-EN">
+<html lang="pl-PL">
 <head>
 <meta charset="UTF-8">
+<style>
+#przycisk
+{
+	border-radius: 10%;
+	background-color: blue;
+	color: lightgreen;
+}
+#przycisk:hover
+{
+	border-radius: 10%;
+	background-color: lightgreen;
+	color: blue;
+}
+</style>
 </head>
 <body>
 <h1>STRONA W BUDOWIE</h1>
-<img src="monke.gif" alt="spinning monkeys">
+<img src="monke.gif" alt="spinning monkeys" id="monke"><br>
+<input type="button" value="KLIKNIJ" onclick="klik()" id="przycisk">
+<p id="tutaj"></p>
+<script>
+function klik()
+{
+	document.getElementById("tutaj").innerHTML="gratulacje, jesteś bardzo posłuszny";
+}
+</script>
 </body>
 </html>
