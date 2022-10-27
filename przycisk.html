@@ -1,0 +1,40 @@
+<html lang="pl-PL">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="styl69.css">
+<title>Test uciekającego przycisku</title>
+</head>
+<body bgcolor="lightgreen" >
+<script>
+function damn()
+{
+	alert("Gratulacje, udało ci się!");
+	location.reload();
+}
+</script>
+<div width="99%" height="99%" style="position: absolute">
+<table align="center" valign="-50%" name="tabela" id="tab" onMouseOver="ruch()" margin="5px" padding="5px">
+	<tr>
+		<td>
+			<form>
+			<input type="button" value="KLIKNIJ MNIE" onClick="damn()" id="button" name="butt">
+			</form>
+		</td>
+	</tr>
+</table>
+</div>
+<script>
+const tab = document.querySelector('#tab');
+function ruch()
+{
+	var min = Math.ceil(20);
+	var rmax = Math.floor(400);
+	var odleglosc = Math.floor(Math.random() * (rmax - min + 1) + min);
+	
+	var ran = Math.random()*10;
+	
+	tab.style.setProperty('transform', 'translateX('+ odleglosc +'px) translateY('+ odleglosc/ran +'px)');
+}
+</script>
+</body>
+</html>
