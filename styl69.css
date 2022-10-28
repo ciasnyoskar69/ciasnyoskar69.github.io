@@ -1,3 +1,9 @@
+#main
+{
+	display: flex;
+	flex: 100vw 100vh;
+}
+
 #button
 {
 	border-radius:12px;
@@ -6,6 +12,4 @@
 #tab
 {
 	top: 50%;
-<<<<<<< HEAD
-}
 }
