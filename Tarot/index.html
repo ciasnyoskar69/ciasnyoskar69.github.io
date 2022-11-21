@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+<meta charset="UTF-8">
+<title>Tarot</title>
+<link rel="stylesheet" type="text/css" href="styl.css">
+</head>
+<body id="body">
+<main>
+<form id="form">
+	<label>Podaj wybraną ilość kart (1-8) </label><br>
+	<input 
+	type="number" 
+	min="1"
+	max="8"
+	oninput="sprawdz()" 
+	id="iloscKart"
+	><br>
+	<span id="info">Proszę podać ilość kart</span><br>
+	<input type="button" value="PRZEŚLIJ" id="przeslij" onclick="init()">
+</form>
+</main>
+<div id="container">
+</div>
+</body>
+<script src="skrypt.js"></script>
+</html>

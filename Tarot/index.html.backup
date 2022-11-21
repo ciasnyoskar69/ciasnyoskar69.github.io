@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+<meta charset="UTF-8">
+<title>Tarot</title>
+<link rel="stylesheet" type="text/css" href="styl.css">
+</head>
+<body id="body">
+<main>
+<form id="form">
+	<label>Podaj wybraną ilość kart (1-8): </label><input 
+	type="number" 
+	min="1"
+	max="8"
+	oninput="sprawdz()" 
+	id="iloscKart"
+	><br>
+	<span id="info">Proszę podać ilość kart</span><br>
+	<input type="button" value="PRZEŚLIJ" id="przeslij" onclick="init()">
+</form>
+</main>
+<div id="container">
+</div>
+</body>
+<script>
+function sprawdz(){
+	const info = document.getElementById('info'),
+	przeslij = document.getElementById('przeslij');
+	
+	let ileKart = document.getElementById('iloscKart').value;
+	
+	
+	if(ileKart>8){
+		info.innerHTML="Ilosc kart przekracza 8";przeslij
+		przeslij.disabled = true;
+	}
+	else if(ileKart==0){
+		info.innerHTML="Proszę podać ilość kart";
+		przeslij.disabled = true;
+	}
+	else{
+		przeslij.disabled = false;
+	}
+}
+function init(){
+	var iloscKart = document.getElementById('iloscKart').value;
+	
+	if(iloscKart<=8){
+	let karty="<div class='child'><img src='Karty/Cardback.png' width='192' height='300' border='0' alt='Ace of hearts' onclick='losujKarty()'/></div>";
+	document.getElementById('container').innerHTML=karty.repeat(iloscKart);
+	document.getElementById('form').innerHTML = "";
+	}
+	else{
+	let karty="";
+	document.getElementById('container').innerHTML=karty.repeat(iloscKart);
+	}
+}
+
+const listaKart = {
+1:'AceClubs.png',
+2:'AceDiamonds.png',
+3:'AceHearts.png',
+4:'AceSpades.png',
+5:'TwoClubs.png',
+6:'TwoDiamonds.png',
+7:'TwoHearts.png',
+8:'TwoSpades.png',
+9:'ThreeClubs.png',
+10:'ThreeDiamonds.png',
+11:'ThreeHearts.png',
+12:'ThreeSpades.png',
+13:'FourClubs.png',
+14:'FourDiamonds.png',
+15:'FourHearts.png',
+16:'FourSpades.png',
+17:'FiveClubs.png',
+18:'FiveDiamonds.png',
+19:'FiveHearts.png',
+20:'FiveSpades.png',
+21:'SixClubs.png',
+22:'SixDiamonds.png',
+23:'SixHearts.png',
+24:'SixSpades.png',
+25:'SevenClubs.png',
+26:'SevenDiamonds.png',
+27:'SevenHearts.png',
+28:'SevenSpades.png',
+29:'EightClubs.png',
+30:'EightDiamonds.png',
+31:'EightHearts.png',
+32:'EightSpades.png',
+33:'NineClubs.png',
+34:'NineDiamonds.png',
+35:'NineHearts.png',
+36:'NineSpades.png',
+37:'TenClubs.png',
+38:'TenDiamonds.png',
+39:'TenHearts.png',
+40:'TenSpades.png',
+41:'JopekClubs.png',
+42:'JopekDiamonds.png',
+43:'JopekHearts.png',
+44:'JopekSpades.png',
+45:'DamaClubs.png',
+46:'DamaDiamonds.png',
+47:'DamaHearts.png',
+48:'DamaSpades.png',
+49:'KingClubs.png',
+50:'KingDiamonds.png',
+51:'KingHearts.png',
+52:'KingSpades.png'
+};
+
+function losowaLiczba(){
+	return Math.random()*(52-1)+1;
+}
+
+function losujKarty(){
+	console.log("Działam");
+	let i=0;
+	let uzyteKarty = [""];
+	console.log(iloscKart);
+	while(i<iloscKart){
+		console.log(iloscKart);
+		let karta = losowaLiczba();
+		console.log(karta);
+		let nazwaKarty = listaKart[karta];
+		console.log(nazwaKarty);
+		document.getElementsByClassName['child'].setAttribute('src', 'Karty/'+nazwaKarty);
+		i++;
+	}
+	console.log("Zakańczam działanie");
+}
+
+</script>
+</html>
